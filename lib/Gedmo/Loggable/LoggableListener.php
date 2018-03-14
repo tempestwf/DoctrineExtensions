@@ -68,10 +68,10 @@ class LoggableListener extends MappedEventSubscriber
     {
         if (is_string($username)) {
             $this->username = $username;
-        } elseif (is_object($username) && method_exists($username, 'getUsername')) {
-            $this->username = (string) $username->getUsername();
+        } elseif (is_object($username) && method_exists($username, 'getName')) {
+            $this->username = (string) $username->getName();
         } else {
-            throw new \Gedmo\Exception\InvalidArgumentException("Username must be a string, or object should have method: getUsername");
+            throw new \Gedmo\Exception\InvalidArgumentException("Username must be a string, or object should have method: getName");
         }
     }
 
